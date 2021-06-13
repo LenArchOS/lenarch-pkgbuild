@@ -1,0 +1,28 @@
+# Maintainer: Lena Voytek <@lvoytek>
+
+pkgname=lenarch-scripts
+pkgver=1.0
+pkgrel=1
+pkgdesc="Scripts for LenArch"
+arch=('any')
+license=('GPL3')
+makedepends=('git')
+depends=()
+conflicts=()
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+
+url="https://github.com/LenArchOS"
+source=(${pkgname}::"git+${url}/${pkgname}")
+sha256sums=('SKIP')
+
+package() {
+	local bin=${pkgdir}/usr/bin
+	local localbin=${pkgdir}/usr/local/bin
+
+	lbin=(`ls -p --hide={LICENSE,README.md,.gitignore} ${srcdir}/${pkgname}`)
+
+	for script in "${lbin[@]}"; do
+		install -Dm755 ${srcdir}/${pkgname}/"$script" "$localbin"/"$script"
+	done
+}
