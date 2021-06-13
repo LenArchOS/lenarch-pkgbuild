@@ -2,3 +2,4 @@
 */pkg/
 *.pkg.tar.zst
 build/
+lenarch-scripts/lenarch-scripts
