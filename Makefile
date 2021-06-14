@@ -24,3 +24,4 @@ clean:
 	rm -rf */pkg/
 	rm -rf */src/
 	rm -rf lenarch-scripts/lenarch-scripts
+	rm -rf lenarch-wallpapers/lenarch-wallpapers
