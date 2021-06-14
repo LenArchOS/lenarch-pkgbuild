@@ -1,0 +1,27 @@
+# Maintainer: Lena Voytek <@lvoytek>
+
+pkgname=lenarch-wallpapers
+pkgver=1.0
+pkgrel=1
+pkgdesc="Wallpapers for LenArch"
+arch=('any')
+license=('GPL3')
+makedepends=('git')
+depends=()
+conflicts=()
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+
+url="https://github.com/LenArchOS"
+source=(${pkgname}::"git+${url}/${pkgname}")
+sha256sums=('SKIP')
+
+package() {
+	local bgdir=${pkgdir}/usr/share/backgrounds
+
+	lenarch=(`ls -p ${srcdir}/${pkgname}/lenarch`)
+
+	for la in "${lenarch[@]}"; do
+		install -Dm644 ${srcdir}/${pkgname}/lenarch/"$la"			"$bgdir"/"$la"
+	done
+}

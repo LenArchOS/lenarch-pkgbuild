@@ -2,9 +2,10 @@
 OUTDIR ?= build
 
 SCRIPTS_OUT := $(wildcard $(OUTDIR)/lenarch-scripts*.pkg.tar.zst)
+WALLPAPERS_OUT := $(wildcard $(OUTDIR)/lenarch-wallpapers*.pkg.tar.zst)
 
 .PHONY:all
-all:SCRIPTS_OUT
+all:SCRIPTS_OUT WALLPAPERS_OUT
 
 
 SCRIPTS_OUT:lenarch-scripts/PKGBUILD
@@ -12,6 +13,10 @@ SCRIPTS_OUT:lenarch-scripts/PKGBUILD
 	(cd lenarch-scripts && makepkg -fs)
 	mv lenarch-scripts/*.pkg.tar.zst $(OUTDIR)/
 
+WALLPAPERS_OUT:lenarch-wallpapers/PKGBUILD
+	mkdir -p $(OUTDIR)
+	(cd lenarch-wallpapers && makepkg -fs)
+	mv lenarch-wallpapers/*.pkg.tar.zst $(OUTDIR)/
 
 .PHONY:clean
 clean:
