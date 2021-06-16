@@ -3,9 +3,10 @@ OUTDIR ?= build
 
 SCRIPTS_OUT := $(wildcard $(OUTDIR)/lenarch-scripts*.pkg.tar.zst)
 WALLPAPERS_OUT := $(wildcard $(OUTDIR)/lenarch-wallpapers*.pkg.tar.zst)
+OPENBOX_OUT := $(wildcard $(OUTDIR)/lenarch-openbox*.pkg.tar.zst)
 
 .PHONY:all
-all:SCRIPTS_OUT WALLPAPERS_OUT
+all:SCRIPTS_OUT WALLPAPERS_OUT OPENBOX_OUT
 
 
 SCRIPTS_OUT:lenarch-scripts/PKGBUILD
@@ -18,6 +19,11 @@ WALLPAPERS_OUT:lenarch-wallpapers/PKGBUILD
 	(cd lenarch-wallpapers && makepkg -fs)
 	mv lenarch-wallpapers/*.pkg.tar.zst $(OUTDIR)/
 
+OPENBOX_OUT:lenarch-openbox/PKGBUILD
+	mkdir -p $(OUTDIR)
+	(cd lenarch-openbox && makepkg -fs)
+	mv lenarch-openbox/*.pkg.tar.zst $(OUTDIR)/
+
 .PHONY:clean
 clean:
 	rm -rf build/
@@ -25,3 +31,4 @@ clean:
 	rm -rf */src/
 	rm -rf lenarch-scripts/lenarch-scripts
 	rm -rf lenarch-wallpapers/lenarch-wallpapers
+	rm -rf lenarch-openbox/lenarch-openbox
