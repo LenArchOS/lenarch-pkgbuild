@@ -8,6 +8,14 @@ OPENBOX_OUT := $(wildcard $(OUTDIR)/lenarch-openbox*.pkg.tar.zst)
 .PHONY:all
 all:SCRIPTS_OUT WALLPAPERS_OUT OPENBOX_OUT
 
+.PHONY:scripts
+scripts:SCRIPTS_OUT
+
+.PHONY:wm
+wm:OPENBOX_OUT
+
+.PHONY:wallpapers
+wallpapers:WALLPAPERS_OUT
 
 SCRIPTS_OUT:lenarch-scripts/PKGBUILD
 	mkdir -p $(OUTDIR)
