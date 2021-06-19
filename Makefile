@@ -4,6 +4,7 @@ OUTDIR ?= build
 SCRIPTS_OUT := $(wildcard $(OUTDIR)/lenarch-scripts*.pkg.tar.zst)
 WALLPAPERS_OUT := $(wildcard $(OUTDIR)/lenarch-wallpapers*.pkg.tar.zst)
 OPENBOX_OUT := $(wildcard $(OUTDIR)/lenarch-openbox*.pkg.tar.zst)
+AUR_OUT := $(wildcard aur/$(OUTDIR)/*.pkg.tar.zst)
 
 .PHONY:all
 all:SCRIPTS_OUT WALLPAPERS_OUT OPENBOX_OUT
@@ -16,6 +17,12 @@ wm:OPENBOX_OUT
 
 .PHONY:wallpapers
 wallpapers:WALLPAPERS_OUT
+
+.PHONY:aur
+aur:AUR_OUT
+
+AUR_OUT:aur/*
+	(cd aur && ./build_aur.sh $(OUTDIR))
 
 SCRIPTS_OUT:lenarch-scripts/PKGBUILD
 	mkdir -p $(OUTDIR)
@@ -35,6 +42,7 @@ OPENBOX_OUT:lenarch-openbox/PKGBUILD
 .PHONY:clean
 clean:
 	rm -rf build/
+	rm -rf aur/build/
 	rm -rf */pkg/
 	rm -rf */src/
 	rm -rf lenarch-scripts/lenarch-scripts

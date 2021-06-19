@@ -1,0 +1,84 @@
+[submodule "aur/ckbcomp"]
+	path = aur/ckbcomp
+	url = https://aur.archlinux.org/ckbcomp.git
+[submodule "aur/mkinitcpio-openswap"]
+	path = aur/mkinitcpio-openswap
+	url = https://aur.archlinux.org/mkinitcpio-openswap.git
+[submodule "aur/adapta-kde"]
+	path = aur/adapta-kde
+	url = https://aur.archlinux.org/adapta-kde.git
+[submodule "aur/colorpicker"]
+	path = aur/colorpicker
+	url = https://aur.archlinux.org/colorpicker.git
+[submodule "aur/blight"]
+	path = aur/blight
+	url = https://aur.archlinux.org/blight.git
+[submodule "aur/i3lock-color"]
+	path = aur/i3lock-color
+	url = https://aur.archlinux.org/i3lock-color.git
+[submodule "aur/betterlockscreen"]
+	path = aur/betterlockscreen
+	url = https://aur.archlinux.org/betterlockscreen.git
+[submodule "aur/ksuperkey"]
+	path = aur/ksuperkey
+	url = https://aur.archlinux.org/ksuperkey.git
+[submodule "aur/networkmanager-dmenu-git"]
+	path = aur/networkmanager-dmenu-git
+	url = https://aur.archlinux.org/networkmanager-dmenu-git.git
+[submodule "aur/obmenu-generator"]
+	path = aur/obmenu-generator
+	url = https://aur.archlinux.org/obmenu-generator.git
+[submodule "aur/perl-linux-desktopfiles"]
+	path = aur/perl-linux-desktopfiles
+	url = https://aur.archlinux.org/perl-linux-desktopfiles.git
+[submodule "aur/polybar"]
+	path = aur/polybar
+	url = https://aur.archlinux.org/polybar.git
+[submodule "aur/yay"]
+	path = aur/yay
+	url = https://aur.archlinux.org/yay.git
+[submodule "aur/picom-ibhagwan-git"]
+	path = aur/picom-ibhagwan-git
+	url = https://aur.archlinux.org/picom-ibhagwan-git.git
+[submodule "aur/compton-tryone-git"]
+	path = aur/compton-tryone-git
+	url = https://aur.archlinux.org/compton-tryone-git.git
+[submodule "aur/timeshift"]
+	path = aur/timeshift
+	url = https://aur.archlinux.org/timeshift.git
+[submodule "aur/cava"]
+	path = aur/cava
+	url = https://aur.archlinux.org/cava.git
+[submodule "aur/xfce-polkit"]
+	path = aur/xfce-polkit
+	url = https://aur.archlinux.org/xfce-polkit.git
+[submodule "aur/downgrade"]
+	path = aur/downgrade
+	url = https://aur.archlinux.org/downgrade.git
+[submodule "aur/pyroom"]
+	path = aur/pyroom
+	url = https://aur.archlinux.org/pyroom.git
+[submodule "aur/pygtk"]
+	path = aur/pygtk
+	url = https://aur.archlinux.org/pygtk.git
+[submodule "aur/libglade"]
+	path = aur/libglade
+	url = https://aur.archlinux.org/libglade.git
+[submodule "aur/python2-gobject2"]
+	path = aur/python2-gobject2
+	url = https://aur.archlinux.org/python2-gobject2.git
+[submodule "aur/toilet"]
+	path = aur/toilet
+	url = https://aur.archlinux.org/toilet.git
+[submodule "aur/tty-clock"]
+	path = aur/tty-clock
+	url = https://aur.archlinux.org/tty-clock.git
+[submodule "aur/unimatrix-git"]
+	path = aur/unimatrix-git
+	url = https://aur.archlinux.org/unimatrix-git.git
+[submodule "aur/spotify"]
+	path = aur/spotify
+	url = https://aur.archlinux.org/spotify.git
+[submodule "aur/visual-studio-code-bin"]
+	path = aur/visual-studio-code-bin
+	url = https://aur.archlinux.org/visual-studio-code-bin.git
