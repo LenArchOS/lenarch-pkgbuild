@@ -5,3 +5,5 @@ build/
 lenarch-scripts/lenarch-scripts
 lenarch-wallpapers/lenarch-wallpapers
 lenarch-openbox/lenarch-openbox
+lenarch-skel/lenarch-skel
+*.tar.gz
