@@ -1,0 +1,30 @@
+# Maintainer: Lena Voytek <@lvoytek>
+
+pkgname=lenarch-cinnamon
+pkgver=1.0
+pkgrel=1
+pkgdesc="Cinnamon configurations for LenArch"
+arch=('any')
+license=('GPL3')
+makedepends=('git')
+depends=('cinnamon')
+conflicts=()
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+
+url="https://github.com/LenArchOS"
+source=(${pkgname}::"git+${url}/${pkgname}")
+sha256sums=('SKIP')
+
+package() {
+	local _config=${pkgdir}/etc/skel/.config
+
+	mkdir -p ${pkgdir}/etc/skel/.config
+	configs=(`ls -p --hide={.cinnamon,LICENSE,README.md} ${srcdir}/${pkgname}`)
+
+	for config in "${configs[@]}"; do
+		cp -r ${srcdir}/${pkgname}/"$config"				"$_config"
+	done
+	
+	cp -r ${srcdir}/${pkgname}/.cinnamon		            "$_config"/../
+}

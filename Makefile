@@ -3,18 +3,19 @@ OUTDIR ?= build
 
 SCRIPTS_OUT := $(wildcard $(OUTDIR)/lenarch-scripts*.pkg.tar.zst)
 WALLPAPERS_OUT := $(wildcard $(OUTDIR)/lenarch-wallpapers*.pkg.tar.zst)
+CINNAMON_OUT := $(wildcard $(OUTDIR)/lenarch-cinnamon*.pkg.tar.zst)
 OPENBOX_OUT := $(wildcard $(OUTDIR)/lenarch-openbox*.pkg.tar.zst)
 SKEL_OUT := $(wildcard $(OUTDIR)/lenarch-skel*.pkg.tar.zst)
 AUR_OUT := $(wildcard aur/$(OUTDIR)/*.pkg.tar.zst)
 
 .PHONY:all
-all:SCRIPTS_OUT WALLPAPERS_OUT OPENBOX_OUT SKEL_OUT
+all:SCRIPTS_OUT WALLPAPERS_OUT CINNAMON_OUT OPENBOX_OUT SKEL_OUT
 
 .PHONY:scripts
 scripts:SCRIPTS_OUT
 
 .PHONY:wm
-wm:OPENBOX_OUT
+wm:OPENBOX_OUT CINNAMON_OUT
 
 .PHONY:wallpapers
 wallpapers:WALLPAPERS_OUT
@@ -38,6 +39,11 @@ WALLPAPERS_OUT:lenarch-wallpapers/PKGBUILD
 	(cd lenarch-wallpapers && makepkg -fs)
 	mv lenarch-wallpapers/*.pkg.tar.zst $(OUTDIR)/
 
+CINNAMON_OUT:lenarch-cinnamon/PKGBUILD
+	mkdir -p $(OUTDIR)
+	(cd lenarch-cinnamon && makepkg -fs)
+	mv lenarch-cinnamon/*.pkg.tar.zst $(OUTDIR)/
+
 OPENBOX_OUT:lenarch-openbox/PKGBUILD
 	mkdir -p $(OUTDIR)
 	(cd lenarch-openbox && makepkg -fs)
@@ -57,4 +63,5 @@ clean:
 	rm -rf lenarch-scripts/lenarch-scripts
 	rm -rf lenarch-wallpapers/lenarch-wallpapers
 	rm -rf lenarch-openbox/lenarch-openbox
+	rm -rf lenarch-cinnamon/lenarch-cinnamon
 	rm -rf lenarch-skel/lenarch-skel
