@@ -1,0 +1,31 @@
+# Maintainer: Lena Voytek <@lvoytek>
+
+pkgname=lenarch-plasma
+pkgver=1.0
+pkgrel=1
+pkgdesc="KDE Plasma configurations for LenArch"
+arch=('any')
+license=('GPL3')
+makedepends=('git')
+depends=()
+conflicts=()
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+
+url="https://github.com/LenArchOS"
+source=(${pkgname}::"git+${url}/${pkgname}")
+sha256sums=('SKIP')
+
+package() {
+	local _config=${pkgdir}/etc/skel/.config
+
+
+	mkdir -p ${pkgdir}/etc/skel/.config
+	configs=(`ls -p --hide={.kde4,LICENSE,README.md} ${srcdir}/${pkgname}`)
+
+	for config in "${configs[@]}"; do
+		cp -r ${srcdir}/${pkgname}/"$config"				"$_config"
+	done
+	
+	cp -r ${srcdir}/${pkgname}/.kde4		            "$_config"/../
+}
